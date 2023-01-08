@@ -27,26 +27,17 @@ def TrackIDSelected(e):
     global IDSelectedStr
     IDSelectedStr = typed
 
+
 def CADAction():
-    # def ImportFile():
-    #     File = filedialog.askopenfilename()
-    #     InfoText.delete(1.0,END)
-    #     if(len(str(File)) > 0):
-    #         InfoText.insert(1.0,"\n" + FileString+str(os.path.basename(File)))
-    #     else:
-    #         InfoText.insert(1.0,"\n" +  FileNullString)
-    #
-    #     try:
-    #
-    #     except ValueError as e:
-    #         messagebox.showerror("Lỗi", "Phát hiện lỗi")
-    #         ValueErrorString = """Lỗi import excel: \n- File không đúng định dạng\n - Không phải file excel"""
-    #         InfoText.insert(1.0,ValueErrorString +"\n" + str(e))
-    #     except Exception as e:
-    #         messagebox.showerror("Lỗi", "Phát hiện lỗi")
-    #         ValueErrorString = """Lỗi import và database: \n- Không đúng kết nối\n - Cấu trúc mongodb có vấn đề"""
-    #         InfoText.insert(1.0, ValueErrorString +"\n" + str(e))
     global IDSelectedStr
+    def exportFile():
+        try:
+            File = filedialog.askopenfilename()
+            FileName = "DataTuDien.xlsx"
+            messagebox.showinfo("Thông báo", "Đã xóa thành công dữ liệu từ điển")
+            print(File + "/" + FileName)
+        except Exception as e:
+            print("")
     def configureApp():
         for i in range(0, 3):
             rootCAD.columnconfigure(i, weight=2, minsize=50)
@@ -58,22 +49,37 @@ def CADAction():
 
         # Column 1
 
-
-
     rootCAD = tk.Toplevel()
     rootCAD.title("CAD ACTION")
     rootCAD.geometry('960x650')
     TopLabel = tk.Label(rootCAD,text = "CONFIG AND DOWNLOAD SELECTED DATA", font = ("bold",16))
+    try:
+        SelectedDf = pd.DataFrame()
+        CountriesInput = CountriesCombobox.get()
+        Start = int(YearStartText.get(1.0,END))
+        End = int(YearEndText.get(1.0,END))
+        print(IDSelectedStr)
+        print(CountriesInput)
+        print(f"\n{Start}-{End}")
+        if (CountriesInput == "All countries"):
+            SelectedDf = wb.data.DataFrame(IDSelectedStr,time=range(Start,End), labels=True, columns='series').reset_index()
+        elif(CountriesInput == "ASEAN countries"):
+            SelectedDf = wb.data.DataFrame(IDSelectedStr,'EAS',time=range(Start,End), labels=True, columns='series').reset_index()
+        else:
+            SelectedDf = wb.data.DataFrame(IDSelectedStr,['USA','MEX','CAN'],time=range(Start,End), labels=True, columns='series').reset_index()
 
-    print(IDSelectedStr)
-    SelectedDf = wb.data.DataFrame(IDSelectedStr,labels = True,columns='series').reset_index()
+    except Exception as e:
+        messagebox.showerror("Error", "Error found:" + str(e))
     #SelectedDf = wb.data.DataFrame(IDSelectedStr,time=range(2000,2015),labels = True,columns='series').reset_index()
     f = Frame(rootCAD)
     pt = Table(f, dataframe=SelectedDf, showtoolbar=True, showstatusbar=True)
     pt.show()
-
+    ImportButton = tk.Button(rootCAD, text = "Save excel file",font = ("bold",12),command=exportFile)
     configureApp()
     mainloop()
+
+
+
 
 def configureApp():
     try:
