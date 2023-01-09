@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 7536,
+  "port": 8888,
+  "root_dir": "D:\\github\\DataWorldBankPython",
+  "secure": false,
+  "sock": "",
+  "token": "e01a3fc081ea3beb0f7ad44d95339306cdc1b407ba35a8c3",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

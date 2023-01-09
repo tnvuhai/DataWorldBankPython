@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 21408,
+  "port": 8888,
+  "root_dir": "D:\\github\\Text_summarization_Vietnamese",
+  "secure": false,
+  "sock": "",
+  "token": "fadbbdd9ea9eca4bd539909c83dbe87d632d18e2244f2c53",
+  "url": "http://localhost:8888/",
+  "version": "1.13.5"
+}

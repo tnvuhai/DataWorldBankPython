@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 17368,
+  "port": 8888,
+  "root_dir": "D:\\github\\LogisticsRegressionMedical",
+  "secure": false,
+  "sock": "",
+  "token": "5c65bb6be1c42c4fad9b9c507e3688e2444682a8fff5b3cc",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

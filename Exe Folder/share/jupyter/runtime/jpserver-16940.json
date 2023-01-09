@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 16940,
+  "port": 8888,
+  "root_dir": "D:\\github\\MongoDBDictionary",
+  "secure": false,
+  "sock": "",
+  "token": "d35019d8048e335f95bf8ffa4fd5a24babcbb2370a4e80f9",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

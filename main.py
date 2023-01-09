@@ -1,11 +1,10 @@
 from tkinter import *
 import tkinter as tk
 from tkinter import messagebox,ttk
-from pandastable import Table,TableModel
+from pandastable import Table
 import wbgapi as wb
 import pandas as pd
 from tkinter import filedialog
-import os
 
 IDSelectedStr = ""
 
@@ -31,13 +30,21 @@ def TrackIDSelected(e):
 def CADAction():
     global IDSelectedStr
     def exportFile():
+        SaveFileString = """Your excel file's location is"""
         try:
-            File = filedialog.askopenfilename()
-            FileName = "DataTuDien.xlsx"
-            messagebox.showinfo("Thông báo", "Đã xóa thành công dữ liệu từ điển")
+            File = filedialog.askdirectory()
+            UserSetFile = str(NameExportText.get(1.0,END))
+            UserSetFile = UserSetFile.replace("\n", "")
+            FileName = f"{UserSetFile}.xlsx"
+            pt.doExport(filename=f"{File}/{FileName}")
+            ExportDf = pt.model.df
+            ExportDf.to_excel(File + "/" + FileName, engine='xlsxwriter')
+            messagebox.showinfo("Notification", f"Export file successfully!\n"
+                                                f"{SaveFileString}: {File}/{FileName}")
             print(File + "/" + FileName)
         except Exception as e:
-            print("")
+            messagebox.showerror("Error", "Error found:" + str(e))
+
     def configureApp():
         for i in range(0, 3):
             rootCAD.columnconfigure(i, weight=2, minsize=50)
@@ -47,7 +54,10 @@ def CADAction():
         TopLabel.grid(row=0, column=0,columnspan = 4, sticky='')
         f.grid(row=1, column=0, columnspan=2, rowspan=6)
 
-        # Column 1
+        # Column 2
+        NameExportLabel.grid(row=1, column=2)
+        NameExportText.grid(row=2, column=2)
+        ImportButton.grid(row=3, column=2)
 
     rootCAD = tk.Toplevel()
     rootCAD.title("CAD ACTION")
@@ -74,6 +84,8 @@ def CADAction():
     f = Frame(rootCAD)
     pt = Table(f, dataframe=SelectedDf, showtoolbar=True, showstatusbar=True)
     pt.show()
+    NameExportLabel = Label(rootCAD,text="Name of excel file:",font = ("bold", 15))
+    NameExportText = Text(rootCAD,font = ("bold", 13),height = 2, width = 20)
     ImportButton = tk.Button(rootCAD, text = "Save excel file",font = ("bold",12),command=exportFile)
     configureApp()
     mainloop()

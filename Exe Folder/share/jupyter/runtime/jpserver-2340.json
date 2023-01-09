@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 2340,
+  "port": 8888,
+  "root_dir": "D:\\github\\Predictive-Modelling",
+  "secure": false,
+  "sock": "",
+  "token": "5a0e16f360f72645e402bd94e6cadbcc7836a687202a8c8c",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

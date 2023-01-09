@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 10384,
+  "port": 8888,
+  "root_dir": "D:\\github\\JupyterNotebook\\AnalyzeICTU",
+  "secure": false,
+  "sock": "",
+  "token": "e4ac94f896a77a675e319725ce9aae235e2dc18b00744c93",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

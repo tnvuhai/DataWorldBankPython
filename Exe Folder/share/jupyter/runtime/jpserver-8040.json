@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 8040,
+  "port": 8888,
+  "root_dir": "D:\\github\\Text_summarization_Vietnamese\\File Ipynb",
+  "secure": false,
+  "sock": "",
+  "token": "e721619e45911c8af6a0d4ebfe90d8d54e2af321cc6e76a1",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 24568,
+  "port": 8888,
+  "root_dir": "C:\\Users\\mamto",
+  "secure": false,
+  "sock": "",
+  "token": "3b6e7cdc56d40de559f259ed7006e7e6ba38691affcb5638",
+  "url": "http://localhost:8888/",
+  "version": "1.18.1"
+}

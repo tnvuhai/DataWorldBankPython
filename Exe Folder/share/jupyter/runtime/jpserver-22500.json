@@ -1,0 +1,13 @@
+{
+  "base_url": "/",
+  "hostname": "localhost",
+  "password": false,
+  "pid": 22500,
+  "port": 8888,
+  "root_dir": "D:\\github\\HandGesture",
+  "secure": false,
+  "sock": "",
+  "token": "e4519bfd7312316796fda36d41c9555fe331c19b24520d4d",
+  "url": "http://localhost:8888/",
+  "version": "1.17.1"
+}
